@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(chatbotContainer);
     
     // Adding CSS styles for the chatbot
+// Find this section in your code that creates the style element
 const style = document.createElement('style');
 style.textContent = `
     .chatbot-container {
@@ -190,15 +191,16 @@ style.textContent = `
     }
     
     .chatbot-input {
-        padding: 15px;
+       padding: 12px 10px; 
         background: rgba(15, 12, 41, 0.9);
         display: flex;
-        gap: 10px;
+        gap: 5px;
         border-top: 1px solid rgba(0, 255, 252, 0.3);
     }
     
     .chatbot-input input {
         flex: 1;
+        min-width: 0;
         background: rgba(255, 255, 255, 0.1);
         border: none;
         padding: 10px 15px;
@@ -220,14 +222,18 @@ style.textContent = `
         background: linear-gradient(to right, #00fffc, #ff16d1);
         color: white;
         border: none;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         transition: transform 0.3s ease;
+        min-width: 36px; /* Ensure minimum width */
+            flex-shrink: 0; /* Prevent button from shrinking */
+
+
     }
     
     .chatbot-input button:hover {
@@ -251,7 +257,8 @@ style.textContent = `
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .chatbot-window {
-            width: 300px;
+            width: 260px;
+            max-width: 85vw;
             height: 450px;
             bottom: 75px;
             right: 0;
@@ -298,17 +305,19 @@ style.textContent = `
         }
         
         .chatbot-input {
-            padding: 10px;
+            padding: 8px 5px; 
         }
         
         .chatbot-input input {
-            padding: 8px 12px;
+            padding: 8px 10px;
             font-size: 14px;
         }
         
         .chatbot-input button {
-            min-width: 36px;
-            height: 36px;
+            min-width: 32px;
+                    width: 32px;
+
+            height: 32px;
             flex-shrink: 0; /* Prevent the button from shrinking */
         }
     }
